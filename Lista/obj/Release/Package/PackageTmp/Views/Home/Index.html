@@ -1,0 +1,23 @@
+﻿<div ng-controller="IndexController as vm" ng-init="vm.initializeController()">
+    <form name="addItem">
+        <div style="margin-top: 20px; margin-bottom: 20px; padding-left: 15px">
+            <input type="text" class="input-lg" ng-model="vm.itemToAdd" required>
+            <button class="btn-primary btn-lg" type="submit" ng-disabled="addItem.$invalid" ng-click="vm.addToList()">Add to list</button>
+            <button class="btn-primary btn-lg" type="submit" ng-click="vm.clearList()">Clear list</button>
+            <div role="alert">
+                <span class="error" ng-show="addItem.$error.required">
+                    Required!
+                </span>
+            </div>
+        </div>
+    </form>
+    <form>
+
+    </form>
+    <div class="col-md-6">
+        
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="item in vm.listItems track by $index">{{item}}</li>
+        </ul>
+    </div>
+</div>
